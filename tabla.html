@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Encarnacion Jesus Te Ama</title>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Celular</th>
+        <th>Dirección</th>
+        <th>Edad</th>
+        <th>¿Asiste a alguna iglesia?</th>
+        <th>Iglesia</th>
+        <th>Paso al frente por...</th>
+        <th>Se lo puede visitar...</th>
+        <th>Quiere que oremos por...</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Las filas se llenarán dinámicamente con JavaScript -->
+    </tbody>
+  </table>
+
+  <script src="data.js"></script>
+
+  <script>
+    const tableBody = document.getElementById('tableBody');
+
+    for (const key in data) {
+      for (const nombre in data[key]) {
+        const persona = data[key][nombre];
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${persona.id}</td>
+          <td>${persona.nombre}</td>
+          <td>${persona.celular}</td>
+          <td>${persona.direccion}</td>
+          <td>${persona.edad}</td>
+          <td>${persona.asiste_a_alguna_iglesia}</td>
+          <td>${persona.iglesia}</td>
+          <td>${persona.paso_al_frente_por}</td>
+          <td>${persona.que_dias_se_le_puede_visitar}</td>
+          <td>${persona.quiere_que_oremos_por_algo}</td>
+        `;
+        tableBody.appendChild(row);
+      }
+    }
+  </script>
+</body>
+</html>
